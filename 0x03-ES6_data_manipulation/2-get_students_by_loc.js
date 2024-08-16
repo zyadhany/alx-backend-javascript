@@ -3,7 +3,7 @@ export default function getStudentsByLocation(students, location) {
     return (student.location === location);
   }
 
-  const firtStud = students.filter(filtration);
+  const firtStud = students.filter((student) => (student.location === location));
 
   return firtStud;
 }
