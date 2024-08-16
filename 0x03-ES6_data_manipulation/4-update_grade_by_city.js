@@ -10,7 +10,7 @@ export default function updateStudentGradeByCity(students, city, grades) {
       }
     });
 
-    let nst = student;
+    const nst = student;
     nst.grade = grade;
     return nst;
   }
