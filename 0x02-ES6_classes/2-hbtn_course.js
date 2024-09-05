@@ -1,10 +1,17 @@
-import Student from './Student.js';
+export default class HolbertonCourse {
+  constructor(name, length, students) {
+    if (typeof name !== 'string') {
+      throw new Error('Name must be a string');
+    }
+    if (typeof length !== 'number') {
+      throw new Error('Length must be a number');
+    }
+    if (!Array.isArray(students)) {
+      throw new Error('Students must be an array');
+    }
 
-export default function initialize() {
-  const students = [];
-  students.push(new Student(19));
-  students.push(new Student(20));
-  students.push(new Student(34));
-
-  return students;
+    this._name = name;
+    this._length = length;
+    this._students = students;
+  }
 }
