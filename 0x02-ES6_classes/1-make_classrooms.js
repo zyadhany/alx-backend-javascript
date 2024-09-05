@@ -1,10 +1,10 @@
-import Student from './Student.js';
+import ClassRoom from "./0-classroom.js";
 
 export default function initialize() {
-  const students = [];
-  students.push(new Student(19));
-  students.push(new Student(20));
-  students.push(new Student(34));
+  const clases = [];
+  clases.push(new ClassRoom(19));
+  clases.push(new ClassRoom(20));
+  clases.push(new ClassRoom(34));
 
-  return students;
+  return clases;
 }
