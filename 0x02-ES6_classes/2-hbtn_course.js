@@ -32,7 +32,7 @@ export default class HolbertonCourse {
   }
 
   set students(newStudents) {
-    if (!(students instanceof Array)) {
+    if (!(newStudents instanceof Array)) {
       throw new Error('Students must be an array');
     }
     this._students = newStudents;
