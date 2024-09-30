@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-module.exports = function read(file) {
-  fs.readFile(file, 'utf8', (err, data) => {
+module.exports = function read(database) {
+  fs.readFile(database, 'utf8', (err, data) => {
     if (err) {
       throw new Error('Cannot load the database');
     } else {
