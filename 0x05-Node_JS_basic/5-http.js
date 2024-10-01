@@ -40,9 +40,9 @@ function countStudents(file) {
 const router = {
   '/': (req, res) => { res.end('Hello Holberton School!'); },
   '/students': (req, res) => {
+    res.write('This is the list of our students\n');
     countStudents(DB_FILE)
       .then((data) => {
-        res.write('This is the list of our students\n');
         res.end(data);
       })
       .catch((error) => {
