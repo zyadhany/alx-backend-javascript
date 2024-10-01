@@ -27,14 +27,13 @@ class StudentsController {
           ].join(' '));
         }
         const res = responseParts.join('\n');
-        console.log(res);
         response.status(200);
         response.end(res);
       })
       .catch((err) => {
-        response
-          .status(500)
-          .send(err instanceof Error ? err.message : err.toString());
+        response.status(500);
+        response.write('This is the list of our students\n');
+        response.end(err instanceof Error ? err.message : err.toString());
       });
   }
 
