@@ -44,7 +44,7 @@ const router = {
     res.setHeader('Content-Type', 'text/plain');
     res.setHeader('Content-Length', responseText.length);
     res.statusCode = 200;
-    res.write(Buffer.from(responseText));
+    res.end(Buffer.from(responseText));
   },
   '/students': (req, res) => {
     countStudents('database.csv')
