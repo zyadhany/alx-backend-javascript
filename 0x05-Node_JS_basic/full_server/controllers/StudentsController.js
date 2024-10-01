@@ -32,7 +32,6 @@ class StudentsController {
       })
       .catch((err) => {
         response.status(500);
-        response.write('This is the list of our students\n');
         response.end(err instanceof Error ? err.message : err.toString());
       });
   }
