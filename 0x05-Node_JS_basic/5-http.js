@@ -15,7 +15,7 @@ function countStudents(file) {
       if (data) {
         let res = '';
 
-        const lines = data.split('\n').slice(1, -1);
+        const lines = data.trim().split('\n').slice(1);
         res += `Number of students: ${lines.length}\n`;
 
         const fields = {};

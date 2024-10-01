@@ -7,7 +7,7 @@ module.exports = function read(file) {
         reject(new Error('Cannot load the database'));
       }
       if (data) {
-        const lines = data.split('\n').slice(1, -1);
+        const lines = data.trim().split('\n').slice(1);
         console.log(`Number of students: ${lines.length}`);
         const fields = {};
         for (const line of lines) {
