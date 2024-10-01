@@ -9,8 +9,6 @@ class StudentsController {
     readDatabase(dataPath)
       .then((studentGroups) => {
         const responseParts = ['This is the list of our students'];
-        // A comparison function for ordering a list of strings in ascending
-        // order by alphabetic order and case insensitive
         const cmpFxn = (a, b) => {
           if (a[0].toLowerCase() < b[0].toLowerCase()) {
             return -1;
@@ -28,7 +26,10 @@ class StudentsController {
             group.map((student) => student.firstname).join(', '),
           ].join(' '));
         }
-        response.status(200).send(responseParts.join('\n'));
+        const res = responseParts.join('\n');
+        console.log(res);
+        response.status(200);
+        response.end(res);
       })
       .catch((err) => {
         response
