@@ -4,6 +4,7 @@ const fs = require('fs');
 const PORT = 1245;
 const HOST = 'localhost';
 const app = http.createServer();
+const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
 
 function countStudents(file) {
   return new Promise((resolve, reject) => {
@@ -30,7 +31,6 @@ function countStudents(file) {
             res += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
           }
         }
-        console.log(res);
         resolve(res);
       }
     });
@@ -38,17 +38,11 @@ function countStudents(file) {
 }
 
 const router = {
-  '/': (req, res) => {
-    const responseText = 'Hello Holberton School!';
-
-    res.setHeader('Content-Type', 'text/plain');
-    res.setHeader('Content-Length', responseText.length);
-    res.statusCode = 200;
-    res.end(Buffer.from(responseText));
-  },
+  '/': (req, res) => { res.end('Hello Holberton School!'); },
   '/students': (req, res) => {
-    countStudents('database.csv')
+    countStudents(DB_FILE)
       .then((data) => {
+        res.write('This is the list of our students\n');
         res.end(data);
       })
       .catch((error) => {
