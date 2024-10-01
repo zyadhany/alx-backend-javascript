@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 
-const PORT = 1245;
+const PORT = 12451;
 const HOST = 'localhost';
 const app = http.createServer();
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
@@ -45,8 +45,9 @@ const router = {
       .then((data) => {
         res.end(data);
       })
-      .catch((error) => {
-        res.end(String(error));
+      .catch((err) => {
+        const responseText = err instanceof Error ? err.message : err.toString();
+        res.end(responseText);
       });
   },
 };
