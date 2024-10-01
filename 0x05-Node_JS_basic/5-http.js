@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 
-const PORT = 12451;
+const PORT = 1245;
 const HOST = 'localhost';
 const app = http.createServer();
 
@@ -38,7 +38,7 @@ function countStudents(file) {
 }
 
 const router = {
-  '/': (req, res) => { res.write('Hello Holberton School!'); },
+  '/': (req, res) => { res.end('Hello Holberton School!'); },
   '/students': (req, res) => {
     countStudents('database.csv')
       .then((data) => {
