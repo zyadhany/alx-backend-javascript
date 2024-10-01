@@ -38,7 +38,14 @@ function countStudents(file) {
 }
 
 const router = {
-  '/': (req, res) => { res.end('Hello Holberton School!'); },
+  '/': (req, res) => {
+    const responseText = 'Hello Holberton School!';
+
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Length', responseText.length);
+    res.statusCode = 200;
+    res.write(Buffer.from(responseText));
+  },
   '/students': (req, res) => {
     countStudents('database.csv')
       .then((data) => {
